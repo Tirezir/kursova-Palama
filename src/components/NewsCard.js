@@ -13,7 +13,8 @@ const NewsCard = ({ news }) => {
         <h3>{news.title}</h3>
         <p>{news.excerpt}</p>
         <Link to={`/news/${news.id}`} className="read-more">
-          Читати далі →
+          Читати даліЙЙЙ
+           →
         </Link>
       </div>
     </div>
