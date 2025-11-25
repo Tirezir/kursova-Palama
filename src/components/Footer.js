@@ -38,10 +38,10 @@ const Footer = () => {
           <div className="footer-section">
             <h3>Соціальні мережі</h3>
             <div className="social-links">
-              <a href="#" aria-label="Facebook">📘</a>
-              <a href="#" aria-label="Twitter">🐦</a>
-              <a href="#" aria-label="Instagram">📷</a>
-              <a href="#" aria-label="Telegram">✈️</a>
+              <a href="https://facebook.com" aria-label="Facebook">📘</a>
+              <a href="https://twitter.com" aria-label="Twitter">🐦</a>
+              <a href="https://instagram.com" aria-label="Instagram">📷</a>
+              <a href="https://telegram.org" aria-label="Telegram">✈️</a>
             </div>
           </div>
         </div>
