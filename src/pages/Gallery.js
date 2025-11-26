@@ -1,9 +1,22 @@
-import React, { useState } from 'react';
-import { galleryData } from '../data/galleryData';
+import React, { useState, useEffect } from 'react';
+import { getGallery } from '../api/newsAPI';
 import './Gallery.css';
 
 const Gallery = () => {
+  const [galleryData, setGalleryData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('Всі');
+
+  useEffect(() => {
+    async function fetchGallery() {
+      const data = await getGallery();
+      setGalleryData(data);
+      setLoading(false);
+    }
+    fetchGallery();
+  }, []);
+
+  if (loading) return <div className="gallery"><p>Завантаження...</p></div>;
 
   const categories = ['Всі', ...new Set(galleryData.map(item => item.category))];
 
@@ -19,6 +32,7 @@ const Gallery = () => {
           <p className="subtitle">
             Візуальна колекція військової техніки та підрозділів України
           </p>
+          <p className="gallery-count">Всього виставок: {galleryData.length}</p>
         </div>
 
         <div className="gallery-filters">

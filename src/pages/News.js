@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import NewsList from '../components/NewsList';
-import { newsData } from '../data/newsData';
+import { getNews } from '../api/newsAPI';
 import './News.css';
 
 const News = () => {
+  const [newsData, setNewsData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchNews() {
+      const data = await getNews();
+      setNewsData(data);
+      setLoading(false);
+    }
+    fetchNews();
+  }, []);
+
+  if (loading) return <div className="news-page"><p>Завантаження...</p></div>;
+
   return (
     <div className="news-page">
       <div className="container">
